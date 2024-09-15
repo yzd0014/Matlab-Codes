@@ -28,10 +28,15 @@ syms s [3 1]
 s=-get_skew_symmetric(y)*R*x;
 
 syms J J0 J1 J2 [1 3]
+% J0=x.'*R.'*get_skew_symmetric(get_skew_symmetric(y)*R*z);
+% J1=-x.'*R.'*get_skew_symmetric(y)*get_skew_symmetric(R*z);
+% J2=-cos(c_angle)/norm(s)*s.'*get_skew_symmetric(y)*get_skew_symmetric(R*x);
+% J=J0+J1+J2;
+
 J0=x.'*R.'*get_skew_symmetric(get_skew_symmetric(y)*R*z);
 J1=-x.'*R.'*get_skew_symmetric(y)*get_skew_symmetric(R*z);
-J2=-cos(c_angle)/norm(s)*s.'*get_skew_symmetric(y)*get_skew_symmetric(R*x);
-J=J0+J1+J2;
+J2=s.'*get_skew_symmetric(y)*get_skew_symmetric(R*x)/norm(s);
+J=(J0+J1)/norm(s)-dot(s,R*z)*J2/(norm(s)*norm(s));
 J
 %% 
 clear;
