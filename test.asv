@@ -43,6 +43,4 @@ y0 = 0;
 %% 
 clear;
 syms w1 w2 w3
-W = sym([0 -w3 w2;w3 0 -w1;-w2 w1 0]);
-syms R [3 3]
-O=W*R
+W = sym([0 -w1]);
