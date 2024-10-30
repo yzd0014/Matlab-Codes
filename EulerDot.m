@@ -34,3 +34,17 @@ Z=sym([cos(gamma) sin(gamma) 0;-sin(gamma) cos(gamma) 0;0 0 1]);
 T=X*Y*Z
 %% 
 clear;
+%convert angular velocity to Eulder dot for my convention
+alpha=0;
+beta=0;
+gamma=0;
+M=[-cos(alpha)*sin(beta)/cos(beta) 1 sin(alpha)*sin(beta)/cos(beta);
+    sin(alpha) 0 cos(alpha);
+    cos(alpha)/cos(beta) 0 -sin(alpha)/cos(beta)];
+
+w=[-1;1;0];
+w=w/norm(w);
+w=-w*2;
+qdot=M*w;
+qdot
+

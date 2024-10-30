@@ -92,7 +92,23 @@ syms x y z [3 1]
 x=zeros(3,1);
 x(1)=1;
 R*x
-
+R
+B=R(2,3)*R(2,3)+R(2,2)*R(2,2);
+J1=(-R(3,3)*R(2,2)+R(3,2)*R(2,3))/B;
+J3=(R(1,3)*R(2,2)-R(1,2)*R(2,3))/B;
+J1
+J3
+%% 
+clear;
+import sym.*
+syms R Rz [3 3]
+syms theta_z
+Rz=eye(3);
+Rz(1,1)=cos(theta_z);
+Rz(1,2)=-sin(theta_z);
+Rz(2,1)=sin(theta_z);
+Rz(2,2)=cos(theta_z);
+R=Rz;
 B=R(2,3)*R(2,3)+R(2,2)*R(2,2);
 J1=(-R(3,3)*R(2,2)+R(3,2)*R(2,3))/B;
 J3=(R(1,3)*R(2,2)-R(1,2)*R(2,3))/B;
